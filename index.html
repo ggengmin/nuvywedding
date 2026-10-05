@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f6f5f1">
+<title>NUVY WEDDING — 우리의 순간을 누비다</title>
+
+<!-- 웹폰트: 모바일/배포 환경에서도 같은 폰트가 보이도록 외부 웹폰트를 사용 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:#f6f5f1; --ink:#171717; --muted:#77736d; --line:#dedbd4;
+  --dark:#111; --serif:"Noto Serif KR", Georgia, serif;
+  --sans:"Noto Sans KR", Arial, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#dedbd5;color:var(--ink);font-family:var(--sans);font-weight:300;letter-spacing:-.025em}
+.page{max-width:760px;margin:0 auto;background:var(--bg);overflow:hidden}
+img{display:block;width:100%}
+.serif{font-family:var(--serif);font-weight:400}
+.eyebrow{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.section{padding:64px 26px}
+.title{font-family:var(--serif);font-size:30px;line-height:1.2;font-weight:400;letter-spacing:-.045em;margin-top:12px}
+.copy{margin-top:20px;font-size:13px;line-height:1.9;color:#55514b}
+.rule{height:1px;background:var(--line);margin:27px 0}
+.statement{font-family:var(--serif);font-size:23px;line-height:1.55;letter-spacing:-.045em}
+.hero{height:100svh;min-height:650px;max-height:860px;position:relative;overflow:hidden}
+/* [변경 1] 영상도 같은 규칙을 쓰도록 선택자에 .hero video 추가 */
+/* .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 48%} */
+.hero img,.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 48%}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.05) 30%,rgba(0,0,0,.10) 55%,rgba(0,0,0,.55) 100%)}
+.hero-mark{position:absolute;z-index:2;top:26px;left:25px;color:#fff;font:500 11px var(--sans);letter-spacing:.18em}
+.hero-content{position:absolute;z-index:2;left:26px;right:26px;bottom:52px;color:#fff}
+.hero-content .eyebrow{color:rgba(255,255,255,.78)}
+.hero h1{font:400 40px/1.15 var(--serif);letter-spacing:-.055em;margin:12px 0 10px}
+.hero p{font-size:12px;color:rgba(255,255,255,.88)}
+
+.editorial-img{height:390px;object-fit:cover}
+
+/* [변경 2] 슬라이드 (신규) */
+.slider{padding:0}
+.slides{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 26px;scroll-padding:0 26px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.slides::-webkit-scrollbar{display:none}
+.slides img{flex:0 0 82%;width:82%;aspect-ratio:4/5;object-fit:cover;scroll-snap-align:start}
+
+.dark{background:var(--dark);color:#fff}
+.dark .eyebrow{color:#8f8c86}
+.dark .copy{color:#c1beb8}
+.dark .rule{background:#343434}
+.dark .statement{color:#fff}
+
+.photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:26px}
+.photo-card{background:#e8e5df;position:relative;overflow:hidden;min-height:220px}
+.photo-card img{height:220px;object-fit:cover}
+.photo-card .over{position:absolute;left:16px;right:16px;bottom:16px;color:#171717}
+.photo-card .over small{display:block;font-size:8px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;color:#777}
+/* [변경 3] 영어를 큰 제목으로, 한글을 작은 설명으로 */
+/* .photo-card .over strong{font:400 18px/1.35 var(--serif)} */
+.photo-card .over strong{display:block;font:300 12px/1.65 var(--sans);color:#666}
+.photo-card .over .en{display:block;font:400 24px/1 var(--serif);letter-spacing:.04em;margin-bottom:10px;color:#171717}
+
+.text-card{min-height:210px;background:#ebe8e1}.text-card .over{position:absolute;inset:auto 16px 16px 16px}.steps{margin-top:28px}
+.step{display:grid;grid-template-columns:36px 1fr;gap:12px;padding:19px 0;border-top:1px solid var(--line)}
+.step:last-child{border-bottom:1px solid var(--line)}
+.step-no{font:400 20px var(--serif);color:#aaa}
+.step h3{font:400 17px/1.3 var(--serif);margin:0 0 4px}
+.step p{font-size:12px;line-height:1.75;color:#777;margin:0}
+
+.feature-list{margin-top:24px}
+.feature{display:flex;justify-content:space-between;gap:18px;padding:16px 0;border-top:1px solid var(--line);font-size:12px}
+.feature span:first-child{font-size:9px;letter-spacing:.12em;color:#777}
+.feature span:last-child{text-align:right;color:#555}
+.note{font-size:10px;color:#8a867f;line-height:1.7;margin-top:16px}
+
+.quote{padding:70px 26px;text-align:center;background:#ebe8e1}
+.quote .mark{font:400 40px var(--serif);color:#aaa}
+.quote p{font:400 23px/1.55 var(--serif);letter-spacing:-.045em;margin:8px 0 0}
+
+.remains{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);margin-top:26px}
+.remain{background:var(--bg);padding:26px 18px;min-height:145px}
+.remain small{display:block;font-size:8px;letter-spacing:.13em;color:#888;margin-bottom:24px}
+.remain strong{font:400 20px/1.35 var(--serif)}
+
+.cta{padding:70px 26px 74px;background:#111;color:#fff;text-align:center}
+.cta h2{font:400 35px/1.25 var(--serif);letter-spacing:-.05em}
+.cta p{font-size:12px;line-height:1.8;color:#bdb9b2;margin:17px 0 26px}
+.cta a{display:inline-block;background:#fff;color:#111;text-decoration:none;padding:12px 21px;font-size:10px;letter-spacing:.1em}
+/* [변경 4] 인스타그램 보조 링크 */
+.cta a.sub{display:block;background:none;color:#8f8c86;padding:0;margin-top:18px}
+.footer{background:#111;border-top:1px solid #333;padding:22px 26px 28px;color:#777;font-size:9px;letter-spacing:.08em;display:flex;justify-content:space-between}
+
+@media(max-width:380px){
+  .hero{min-height:600px}
+  .hero h1{font-size:35px}
+  .section{padding-left:21px;padding-right:21px}
+  .photo-grid{gap:6px}
+  .photo-card,.photo-card img{min-height:190px;height:190px}
+  .slides{padding:0 21px;scroll-padding:0 21px}
+}
+@media(min-width:761px){.page{box-shadow:0 0 55px rgba(0,0,0,.08)}}
+</style>
+</head>
+
+<body>
+<main class="page">
+
+<!-- COVER: 한 화면에 제목이 들어오도록 하단 고정 -->
+<section class="hero">
+  <!-- [변경 1] 기존 base64 <img>를 영상으로 교체. 기존 커버 사진은 main_poster.jpg 파일로 저장해서 사용 -->
+  <!-- <img src="main_poster.jpg" alt="NUVY wedding couple"> -->
+  <!-- <video autoplay muted loop playsinline poster="main_poster.jpg"> -->
+  <video autoplay muted loop playsinline poster="main_image_1.jpg">
+    <source src="main_video.mp4" type="video/mp4">
+  </video>
+  <div class="hero-mark">NUVY</div>
+  <div class="hero-content">
+    <div class="eyebrow">NUVY WEDDING GUIDE</div>
+    <h1>우리의 순간을<br>누비다</h1>
+    <p>마음을 꺼내, 사진에 담습니다.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="eyebrow">01 / ABOUT NUVY</div>
+  <h2 class="title">NOT JUST<br>A PHOTO BOOTH.</h2>
+  <p class="copy">누비포토는 단순히 사진을 찍는 기계를 가져가는 서비스가 아닙니다.<br><br>
+  결혼식에 모인 사람들이 함께 웃고, 사진을 남기고, 서로의 마음을 한 번 더 바라보게 하는 경험을 만듭니다.</p>
+  <div class="rule"></div>
+  <p class="statement">사진보다 오래 남는 건,<br>그날의 마음.</p>
+</section>
+
+<!-- [변경 2] 슬라이드 (신규). 사진을 늘리거나 줄이려면 <img> 줄만 추가/삭제 -->
+<section class="slider" aria-label="NUVY wedding moments">
+  <div class="slides">
+    <img src="main_image_1.jpg" alt="누비포토 웨딩 현장 1" loading="lazy">
+    <img src="main_image_2.jpg" alt="누비포토 웨딩 현장 2" loading="lazy">
+    <img src="main_image_3.jpg" alt="누비포토 웨딩 현장 3" loading="lazy">
+    <img src="main_image_4.jpg" alt="누비포토 웨딩 현장 4" loading="lazy">
+  </div>
+</section>
+
+<section class="section">
+  <div class="eyebrow">02 / YOUR WEDDING</div>
+  <h2 class="title">YOUR WEDDING,<br>YOUR FRAME.</h2>
+  <p class="copy">두 분의 결혼식을 위해 준비한 사진 프레임.<br>
+  웨딩의 분위기와 두 분의 취향에 맞춰 프레임을 제작합니다.</p>
+
+  <!-- [변경 3] 기존: <small>01 / MOOD</small> 형태 → 숫자와 영어를 분리 -->
+  <div class="photo-grid">
+    <div class="photo-card text-card"><div class="over static"><small>01</small><b class="en">MOOD</b><strong>예식의 분위기를<br>담고</strong></div></div>
+    <div class="photo-card text-card"><div class="over static"><small>02</small><b class="en">FRAME</b><strong>두 분만의<br>프레임으로 만들고</strong></div></div>
+    <div class="photo-card text-card"><div class="over static"><small>03</small><b class="en">PHOTO</b><strong>사진은 바로<br>인화하고</strong></div></div>
+    <div class="photo-card text-card"><div class="over static"><small>04</small><b class="en">DIGITAL</b><strong>그날의 기록은<br>오래 남깁니다.</strong></div></div>
+  </div>
+</section>
+
+<section class="section dark">
+  <div class="eyebrow">03 / ON YOUR WEDDING DAY</div>
+  <h2 class="title">STEP IN.<br>TAKE A PHOTO.<br>LEAVE A MEMORY.</h2>
+  <div class="steps">
+    <div class="step"><div class="step-no">01</div><div><h3>STEP IN</h3><p>하객이 편하게 부스에 들어와 사진을 찍습니다.</p></div></div>
+    <div class="step"><div class="step-no">02</div><div><h3>TAKE A PHOTO</h3><p>현장에서 안내하며 자연스럽게 사진을 남깁니다.</p></div></div>
+    <div class="step"><div class="step-no">03</div><div><h3>PRINT</h3><p>사진은 현장에서 바로 인화됩니다. 필요한 수량만큼 자유롭게 가져갈 수 있습니다.</p></div></div>
+    <div class="step"><div class="step-no">04</div><div><h3>LEAVE A MEMORY</h3><p>사진과 함께 두 분에게 남겨질 마음과 기록을 완성합니다.</p></div></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="eyebrow">04 / WHAT NUVY PREPARES</div>
+  <h2 class="title">사진 한 장이<br>완성되기까지.</h2>
+  <div class="feature-list">
+    <div class="feature"><span>PHOTOBOOTH</span><span>이동형 포토부스</span></div>
+    <div class="feature"><span>CUSTOM FRAME</span><span>웨딩 맞춤 프레임</span></div>
+    <div class="feature"><span>PRINT</span><span>현장 즉석 인화</span></div>
+    <div class="feature"><span>STAFF</span><span>현장 운영 및 안내</span></div>
+    <div class="feature"><span>QR DOWNLOAD</span><span>사진 · 영상 · 원본 디지털 기록</span></div>
+    <div class="feature"><span>MEMORY</span><span>웨딩 방명록 및 기록</span></div>
+  </div>
+  <p class="note">※ 실제 구성은 웨딩의 공간과 일정에 따라 상담 후 조정됩니다.</p>
+</section>
+
+<!-- [선택] 단독 이미지 1장 (인화 사진/프레임 클로즈업). 쓰려면 아래 주석을 풀고 detail_image.jpg 준비 -->
+<!-- <img class="editorial-img" src="detail_image.jpg" alt="누비포토 인화 사진" loading="lazy"> -->
+
+<!-- A MOMENT TO KEEP 삭제: 다음 메시지가 자연스럽게 WHAT REMAINS로 이어짐 -->
+<section class="quote">
+  <div class="mark">“</div>
+  <p>하객에게는 한 장의 사진을,<br>두 분에게는 그날의 기록을.</p>
+</section>
+
+<section class="section">
+  <div class="eyebrow">05 / WHAT REMAINS</div>
+  <h2 class="title">WHAT REMAINS.</h2>
+  <p class="copy">결혼식이 끝난 뒤에도 그날의 사진은 남습니다.</p>
+  <div class="remains">
+    <div class="remain"><small>FOR GUESTS</small><strong>사진을<br>가져갑니다.</strong></div>
+    <div class="remain"><small>FOR COUPLE</small><strong>추억을<br>간직합니다.</strong></div>
+  </div>
+  <p class="copy">현장에서 인화된 사진과 함께 QR을 통해 디지털 사진·영상·원본을 확인할 수 있도록 기록을 남깁니다.</p>
+</section>
+
+<section class="section" style="padding-top:10px">
+  <div class="eyebrow">06 / BEFORE YOU BOOK</div>
+  <h2 class="title">먼저 이것만<br>확인해주세요.</h2>
+  <div class="feature-list">
+    <div class="feature"><span>DATE</span><span>예식 날짜와 시간</span></div>
+    <div class="feature"><span>VENUE</span><span>웨딩홀 / 행사 장소</span></div>
+    <div class="feature"><span>SPACE</span><span>포토부스 설치 공간</span></div>
+    <div class="feature"><span>POWER</span><span>전원 사용 가능 여부</span></div>
+    <div class="feature"><span>STYLE</span><span>원하는 웨딩 분위기와 프레임</span></div>
+  </div>
+  <p class="note">문의주실 때 날짜 · 장소 · 원하는 시간대를 함께 보내주시면 보다 빠르게 안내해드릴 수 있습니다.</p>
+</section>
+
+<section class="cta">
+  <div class="eyebrow">NUVY WEDDING</div>
+  <h2>우리의 순간을<br>누비다.</h2>
+  <p>마음을 꺼내, 사진에 담습니다.<br>두 분의 가장 좋은 날에 함께하겠습니다.</p>
+  <!-- [변경 4] 문의 버튼: 메일 → 카카오톡, 아래에 인스타그램 보조 링크 -->
+  <!-- <a href="mailto:nuvyphoto@naver.com">WEDDING INQUIRY</a> -->
+  <a href="https://open.kakao.com/o/s4aXFMvi" target="_blank" rel="noopener">WEDDING INQUIRY</a>
+  <a class="sub" href="https://www.instagram.com/nuvy.photo/">INSTAGRAM @nuvy.photo</a>
+</section>
+
+<footer class="footer">
+  <span>NUVY PHOTO</span>
+  <span>Wedding · Event · Popup</span>
+</footer>
+</main>
+
+<!-- [변경 2] 슬라이드 자동 넘김 (3.5초). 손으로만 넘기게 하려면 이 <script> 블록 전체를 주석 처리 -->
+<script>
+(function(){
+  var s=document.querySelector('.slides'); if(!s) return;
+  setInterval(function(){
+    var img=s.querySelector('img'); if(!img) return;
+    var step=img.offsetWidth+8;
+    var end=s.scrollLeft+s.clientWidth>=s.scrollWidth-4;
+    s.scrollTo({left:end?0:s.scrollLeft+step,behavior:'smooth'});
+  },3500);
+})();
+</script>
+</body>
+</html>
