@@ -48,6 +48,11 @@ img{display:block;width:100%}
 .slides::-webkit-scrollbar{display:none}
 .slides img{flex:0 0 82%;width:82%;aspect-ratio:4/5;object-fit:cover;scroll-snap-align:start}
 
+/* [변경 6] 검정 배경 슬라이드는 아래 여백 필요 */
+.slider.dark{padding-bottom:64px}
+/* [변경 7] 03 아래 과정 영상 */
+.guest-video{padding:0 26px 64px}
+.guest-video video{display:block;width:100%;height:auto}
 .dark{background:var(--dark);color:#fff}
 .dark .eyebrow{color:#8f8c86}
 .dark .copy{color:#c1beb8}
@@ -109,6 +114,7 @@ img{display:block;width:100%}
   .photo-grid{gap:6px}
   .photo-card,.photo-card img{min-height:190px;height:190px}
   .slides{padding:0 21px;scroll-padding:0 21px}
+  .guest-video{padding-left:21px;padding-right:21px}
 }
 @media(min-width:761px){.page{box-shadow:0 0 55px rgba(0,0,0,.08)}}
 </style>
@@ -181,6 +187,23 @@ img{display:block;width:100%}
   </div>
 </section>
 
+<!-- [변경 7] 하객 슬라이드 → 과정 영상으로 교체 (슬라이드는 주석으로 보관) -->
+<!--
+<section class="slider dark" aria-label="NUVY wedding guests">
+  <div class="slides">
+    <img src="guest_1.jpg" alt="누비포토 웨딩 하객 1" loading="lazy">
+    <img src="guest_2.jpg" alt="누비포토 웨딩 하객 2" loading="lazy">
+    <img src="guest_3.jpg" alt="누비포토 웨딩 하객 3" loading="lazy">
+    <img src="guest_4.jpg" alt="누비포토 웨딩 하객 4" loading="lazy">
+  </div>
+</section>
+-->
+<section class="dark guest-video" aria-label="NUVY wedding guests video">
+  <video autoplay muted loop playsinline preload="metadata">
+    <source src="guest_video.mp4" type="video/mp4">
+  </video>
+</section>
+
 <section class="section">
   <div class="eyebrow">04 / WHAT NUVY PREPARES</div>
   <h2 class="title">사진 한 장이<br>완성되기까지.</h2>
@@ -215,6 +238,17 @@ img{display:block;width:100%}
   <p class="copy">현장에서 인화된 사진과 함께 QR을 통해 디지털 사진·영상·원본을 확인할 수 있도록 기록을 남깁니다.</p>
 </section>
 
+<!-- [변경 8] WHAT REMAINS 슬라이드 (신규). 아래 06 섹션 위쪽 여백이 10px뿐이라 여기서 54px 보충 -->
+<section class="slider" aria-label="NUVY wedding what remains" style="padding-bottom:54px">
+  <div class="slides">
+    <img src="remain_1.jpg" alt="누비포토 웨딩 현장 기록 1" loading="lazy">
+    <img src="remain_2.jpg" alt="누비포토 웨딩 현장 기록 2" loading="lazy">
+    <img src="remain_3.jpg" alt="누비포토 웨딩 현장 기록 3" loading="lazy">
+    <img src="remain_4.jpg" alt="누비포토 웨딩 현장 기록 4" loading="lazy">
+    <img src="remain_5.jpg" alt="누비포토 웨딩 현장 기록 5" loading="lazy">
+  </div>
+</section>
+
 <section class="section" style="padding-top:10px">
   <div class="eyebrow">06 / BEFORE YOU BOOK</div>
   <h2 class="title">먼저 이것만<br>확인해주세요.</h2>
@@ -246,6 +280,7 @@ img{display:block;width:100%}
 
 <!-- [변경 2] 슬라이드 자동 넘김 (3.5초). 손으로만 넘기게 하려면 이 <script> 블록 전체를 주석 처리 -->
 <script>
+/* [변경 6] 슬라이드가 2개가 되어 첫 번째만 잡던 방식 → 전부 잡는 방식으로 변경
 (function(){
   var s=document.querySelector('.slides'); if(!s) return;
   setInterval(function(){
@@ -254,6 +289,17 @@ img{display:block;width:100%}
     var end=s.scrollLeft+s.clientWidth>=s.scrollWidth-4;
     s.scrollTo({left:end?0:s.scrollLeft+step,behavior:'smooth'});
   },3500);
+})();
+*/
+(function(){
+  document.querySelectorAll('.slides').forEach(function(s){
+    setInterval(function(){
+      var img=s.querySelector('img'); if(!img) return;
+      var step=img.offsetWidth+8;
+      var end=s.scrollLeft+s.clientWidth>=s.scrollWidth-4;
+      s.scrollTo({left:end?0:s.scrollLeft+step,behavior:'smooth'});
+    },3500);
+  });
 })();
 </script>
 </body>
