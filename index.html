@@ -65,6 +65,14 @@ img{display:block;width:100%}
 .photo-card .over .en{display:block;font:400 24px/1 var(--serif);letter-spacing:.04em;margin-bottom:10px;color:#171717}
 
 .text-card{min-height:210px;background:#ebe8e1}.text-card .over{position:absolute;inset:auto 16px 16px 16px}.steps{margin-top:28px}
+/* [변경 5] 02 섹션: 프레임 이미지 추가 + 카드 4개를 납작하게 (기존 210px → 104px) */
+.frame-img{margin-top:26px;aspect-ratio:1920/1010;object-fit:cover}
+.frame-img + .photo-grid{margin-top:8px}
+.photo-grid .text-card{min-height:104px;height:auto}
+.photo-grid .text-card .over{inset:auto 14px 14px 14px}
+.photo-grid .text-card .over small{display:inline;margin:0 6px 0 0}
+.photo-grid .text-card .over .en{display:inline;font-size:20px;margin:0}
+.photo-grid .text-card .over strong{margin-top:6px;font-size:11px;line-height:1.55}
 .step{display:grid;grid-template-columns:36px 1fr;gap:12px;padding:19px 0;border-top:1px solid var(--line)}
 .step:last-child{border-bottom:1px solid var(--line)}
 .step-no{font:400 20px var(--serif);color:#aaa}
@@ -149,6 +157,9 @@ img{display:block;width:100%}
   <h2 class="title">YOUR WEDDING,<br>YOUR FRAME.</h2>
   <p class="copy">두 분의 결혼식을 위해 준비한 사진 프레임.<br>
   웨딩의 분위기와 두 분의 취향에 맞춰 프레임을 제작합니다.</p>
+
+  <!-- [변경 5] 프레임 모음 이미지 (1920x1010) -->
+  <img class="frame-img" src="frame.jpg" alt="누비포토 웨딩 프레임 모음" loading="lazy">
 
   <!-- [변경 3] 기존: <small>01 / MOOD</small> 형태 → 숫자와 영어를 분리 -->
   <div class="photo-grid">
