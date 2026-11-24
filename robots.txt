@@ -2,4 +2,32 @@
 User-agent: *
 Allow: /
 
+# ChatGPT Search
+User-agent: OAI-SearchBot
+Allow: /
+
+# OpenAI model training
+User-agent: GPTBot
+Disallow: /
+
+# Claude Search
+User-agent: Claude-SearchBot
+Allow: /
+
+# Claude user-initiated browsing
+User-agent: Claude-User
+Allow: /
+
+# Anthropic model training
+User-agent: ClaudeBot
+Disallow: /
+
+# Google Search and AI Search
+User-agent: Googlebot
+Allow: /
+
+# Gemini training and grounding
+User-agent: Google-Extended
+Allow: /
+
 Sitemap: https://nuvywedding.vercel.app/sitemap.xml
