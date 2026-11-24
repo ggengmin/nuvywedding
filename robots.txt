@@ -1,0 +1,5 @@
+
+User-agent: *
+Allow: /
+
+Sitemap: https://nuvywedding.vercel.app/sitemap.xml
